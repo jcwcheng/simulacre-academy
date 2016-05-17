@@ -1,0 +1,152 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bitscademy</title>
+    <link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+    <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
+    <script src="https://cdn.firebase.com/v0/firebase-simple-login.js"></script>
+    <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <ul class="menu">
+                <li class="menu-text"><a class="logo" href="#">Bitscademy</a></li>
+            </ul>
+        </div>
+        <div class="top-bar-right">
+            <ul class="menu">
+                <li>
+                    <a id="user-profile" href="$" title="user-profile"></a>
+                </li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- close .top-bar -->
+    <div class="hero-image">
+        <div class="intro-promo">
+            <div class="row">
+                <div class="small-12 medium-6 large-6 columns">
+                    <div class="intro-message">
+                        <h1>Learn to Code</h1>
+                        <h4>100s of Lessons, for free.</h4>
+                    </div>
+                </div>
+                <div class="small-12 medium-6 large-6 columns">
+                    <div class="homepage-registration-forms">
+                        <h4>Welcome! </h4>
+                        <script>document.write(localStorage.getItem("greetings"));</script>
+                        <form action="/register" autocomplete="off" method="post" class="new-user" id="new-user" accept-charset="utf-8">
+                            <button id="btn-logout" tabindex="3" type="button" class="button registered-button">Log out</button>
+                        </form>
+                    </div>
+                    <!-- close .homepage-registration-forms -->
+                    <div class="homepage-login-forms">
+                        <h4>sign in</h4>
+                        <form action="/register" autocomplete="off" method="post" class="new-user" id="new-user" accept-charset="utf-8">
+                            <div tabindex="1" class="form-field">
+                                <input type="text" class="" name="user[login]" id="user_login" placeholder="Email or username" value>
+                            </div>
+                            <div tabindex="2" class="form-field">
+                                <input id="user_password" type="password" name="user[password]" placeholder="Password" value>
+                            </div>
+                            <button tabindex="3" type="button" class="button registered-button">Sign in</button>
+                            <h5>Log in with <a tabindex="4" href="#" title="">Google</a>, <a tabindex="5" href="#" title="">Facebook</a>, or <a tabindex="6" href="#" title="">Twitter</a>, 
+<a tabindex="7" href="#" title="">Forgot your password?</a></h5>
+                        </form>
+                    </div>
+                    <!-- close .homepage-login-forms -->
+                </div>
+            </div>
+            <!-- close .intro-promo -->
+        </div>
+    </div>
+    <!-- close .hero-image -->
+    <div class="courses">
+        <div class="row small-up-2 large-up-4">
+            <div class="column">
+                <img class="thumbnail" src="http://placehold.it/300x300">
+            </div>
+            <div class="column">
+                <img class="thumbnail" src="http://placehold.it/300x300">
+            </div>
+            <div class="column">
+                <img class="thumbnail" src="http://placehold.it/300x300">
+            </div>
+            <div class="column">
+                <img class="thumbnail" src="http://placehold.it/300x300">
+            </div>
+        </div>
+        <div class="row small-up-2 large-up-4">
+            <div class="column">
+                <img class="thumbnail" src="http://placehold.it/300x300">
+            </div>
+            <div class="column">
+                <img class="thumbnail" src="http://placehold.it/300x300">
+            </div>
+            <div class="column">
+                <img class="thumbnail" src="http://placehold.it/300x300">
+            </div>
+            <div class="column">
+                <img class="thumbnail" src="http://placehold.it/300x300">
+            </div>
+        </div>
+    </div>
+    <footer class="site-footer">
+        <div class="site-footer__top">
+            <div class="row">
+                <div class="small-12 medium-3 large-3 columns">
+                    <div class="site-footer__logo">
+                        <a class="logo" href="#">Bitscademy</a>
+                    </div>
+                </div>
+                <div class="small-4 medium-3 large-3 columns">
+                    <div class="site-footer__links">
+                        <div class="footer-nav">
+                            <h3>Explore</h3>
+                            <ul>
+                                <li><a>About</a></li>
+                                <li><a>Blog</a></li>
+                                <li><a>Bits+</a></li>
+                                <li><a>Jobs</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="small-4 medium-3 large-3 columns">
+                    <div class="footer-nav">
+                        <h3>Download</h3>
+                        <ul>
+                            <li><a>For iOS</a></li>
+                            <li><a>For Android</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="small-4 medium-3 large-3 columns">
+                    <div class="footer-nav">
+                        <h3>Contact</h3>
+                        <ul>
+                            <li><a>Email</a></li>
+                            <li><a>Facebook</a></li>
+                            <li><a>Twitter</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <p class="copyright">© 2016 Bitscademy - All Rights Reserved.</p>
+    </footer>
+    <!-- close .site-footer -->
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+    <script src="js/min/app-min.js" type="text/javascript" charset="utf-8" async defer></script>
+</body>
+
+</html>

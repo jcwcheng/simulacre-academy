@@ -1,0 +1,364 @@
+@charset 'utf-8';
+@import 'settings';
+@import 'foundation';
+@import 'motion-ui';
+@include foundation-global-styles;
+@include foundation-grid;
+// @include foundation-flex-grid;
+@include foundation-typography;
+@include foundation-button;
+@include foundation-forms;
+// @include foundation-range-input;
+@include foundation-accordion;
+@include foundation-accordion-menu;
+@include foundation-badge;
+@include foundation-breadcrumbs;
+@include foundation-button-group;
+@include foundation-callout;
+@include foundation-close-button;
+@include foundation-menu;
+@include foundation-menu-icon;
+@include foundation-drilldown-menu;
+@include foundation-dropdown;
+@include foundation-dropdown-menu;
+@include foundation-flex-video;
+@include foundation-label;
+@include foundation-media-object;
+@include foundation-off-canvas;
+@include foundation-orbit;
+@include foundation-pagination;
+@include foundation-progress-bar;
+// @include foundation-progress-element;
+// @include foundation-meter-element;
+@include foundation-slider;
+@include foundation-sticky;
+@include foundation-reveal;
+@include foundation-switch;
+@include foundation-table;
+@include foundation-tabs;
+@include foundation-thumbnail;
+@include foundation-title-bar;
+@include foundation-tooltip;
+@include foundation-top-bar;
+@include foundation-visibility-classes;
+@include foundation-float-classes;
+// @include foundation-flex-classes;
+@include motion-ui-transitions;
+@include motion-ui-animations;
+button::-moz-focus-inner {
+    border: 0;
+}
+
+// fonts
+$primary-font:'Open Sans',
+sans-serif;
+// colors
+$color-1: #FB9B1D; // dark yellow
+$color-2: rgb(52, 152, 219); // blue
+$color-3: #fafafa; // grey light 
+$color-4: #ffffff; // white
+$color-5: #52606f;
+$color-6: #72869c;
+$color-7: #9dacbd;
+// header size
+$header-height-S: 80px;
+$header-height-L: 160px;
+// navigation size
+$nav-width-S: 260px;
+// z-index
+$below-content: 1;
+$content: 2;
+$above-content: 3;
+// breakpoints
+$XS: 320px;
+$S: 480px;
+$M: 768px;
+$L: 1170px;
+$maxL: $L - 1px;
+// media queries
+@mixin MQ($canvas) {
+    @if $canvas==S {
+        @media only screen and (min-width: $S) {
+            @content;
+        }
+    }
+    @else if $canvas==M {
+        @media only screen and (min-width: $M) {
+            @content;
+        }
+    }
+    @else if $canvas==L {
+        @media only screen and (min-width: $L) {
+            @content;
+        }
+    }
+    @else if $canvas==maxL {
+        @media only screen and (max-width: $maxL) {
+            @content;
+        }
+    }
+}
+
+// super light grid - it works with the .cd-container class inside style.scss
+@mixin column($percentage, $float-direction:left) {
+    width: 100% * $percentage;
+    float: $float-direction;
+}
+
+body {
+    font-family: $primary-font;
+}
+
+.top-bar {
+    padding: 3rem;
+}
+
+.top-bar,
+.top-bar ul {
+    background: transparent;
+}
+
+.top-bar-right {
+    .menu {
+        @media only screen and (max-width: $M) {
+            display: none;
+        }
+        @include MQ(M) {}
+    }
+}
+
+.hero-image {
+    position: relative;
+    margin-top: -146px;
+    width: 100%;
+    height: 820px;
+    text-align: center;
+    background-size: cover;
+    background: url("../img/hero-image@2x.png") no-repeat center center;
+    .intro-promo {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        margin: auto;
+        margin-top: 40px;
+        transform: translate(-50%, -50%);
+        @include MQ(L) {
+            width: 50%;
+        }
+    }
+    @include MQ(M) {
+    	height: 620px;
+    }
+    .intro-message {
+        display: table-cell;
+        vertical-align: middle;
+        height: 310px;
+        padding: 0 0 0 30px;
+        text-align: left;
+        color: $color-4;
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+						@include MQ(S) {
+							font-size: 3rem;
+						}            
+        }
+    }
+}
+
+.homepage-registration-forms,
+.homepage-login-forms {
+    @include MQ(S) {
+    	float: right;
+    }
+    h4 {
+        text-transform: uppercase;
+        text-align: left;
+        font-family: $primary-font;
+        font-weight: 700;
+        padding: 4px 0 20px;
+        font-size: 24px;
+        font-size: 1.5rem;
+    }
+    h5 {
+        font-family: $primary-font;
+        font-size: 12px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        a {
+            font-weight: 700;
+            color: lighten($color-5, 16%);
+            font-size: 14px;
+            transition: .3s;
+        }
+        a:hover {
+            color: $color-5;
+        }
+    }
+    .form-field:focus {
+        [type='text'],
+        [type='password'] {
+            border-bottom: 1px solid $color-5;
+        }
+        outline:0;
+    }
+    [type='text'],
+    [type='password'] {
+        letter-spacing: 1px;
+        border: 0;
+        border-bottom: 1px solid lighten($color-5, 45%);
+        box-shadow: none;
+    }
+    [type='text']:focus,
+    [type='password']:focus,
+    [type='text']:active,
+    [type='password']:active {
+        border-bottom: 1px solid $color-5;
+    }
+    .registered-button {
+        box-sizing: border-box;
+        margin-top: 18px;
+        width: 100%;
+        font-size: 20px;
+        font-weight: 600;
+        border-radius: 30px;
+        background: $color-1;
+        outline: 0;
+    }
+    .registered-button:hover,
+    .registered-button:focus,
+    .registered-button:active {
+        background: darken($color-1, 8%);
+    }
+    padding: 40px;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0,
+    0,
+    0,
+    .1);
+    color:$color-5;
+    background: $color-4;
+}
+
+.homepage-login-forms {
+    display: none;
+}
+
+.menu-text {
+    text-indent: -9999999px;
+    .logo {
+        position: relative;
+        z-index: 10;
+        height: 28px;
+        width: 130px;
+        padding: 0;
+        background: url("../img/logo.png") no-repeat center center;
+        background: url("../img/logo.svg") no-repeat center center;
+        background-size: 130px 28px;
+    }
+}
+
+.menu {
+    position: relative;
+    z-index: 10;
+    &__new-account {
+        border: 2px solid transparentize($color-4, .4);
+        border-radius: 20px;
+   
+        transition: .3s;
+    }
+    &__new-account:hover, &__new-account:focus{
+    	border: 2px solid transparentize($color-4, .8);
+
+    }
+    a{
+      font-weight: 600;
+      color: transparentize($color-4, .4);
+      transition: .3s;
+    }
+    li > a:hover, li > a:focus{
+    	color: $color-4;
+    }
+    li:first-child {
+        margin-right: 16px;
+        float: left;
+    }
+}
+
+.courses {
+    margin: 100px 0 100px;
+}
+
+.site-footer {
+    position: relative;
+    height: 500px;
+    background: $color-5;
+    color: $color-4;
+    .copyright {
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        bottom: 10px;
+        color: $color-6;
+    }
+
+}
+.site-footer__logo{
+	    text-indent: -999999px;
+	    .logo {
+        position: relative;
+        display: block;
+				margin: 0 0 50px 30px;        
+        z-index: 10;
+        height: 28px;
+        width: 130px;
+        padding: 0;
+        background: url("../img/logo.png") no-repeat center center;
+        background: url("../img/logo.svg") no-repeat center center;
+        background-size: 130px 28px;
+				@include MQ(L) {
+					margin: 0 0 50px 0; 
+				}
+    }
+}
+.site-footer__top{
+	padding: 80px 0 20px;
+}
+.footer-nav{
+	float: right;
+	a{
+		color: $color-4;
+		font-weight: 600;
+		letter-spacing: .04rem;
+	}
+	a:hover, a:focus{
+		text-decoration: underline;
+	}
+	h3{
+		font-size: 16px;
+		letter-spacing: .04rem;
+		font-size: 1rem;
+		color: $color-7;
+		font-weight: 700;
+		margin: 0 0 40px 0;
+	}
+	ul{	
+		margin-left: 2px;
+	}
+	li{
+		list-style-type: none;
+		margin: 20px 0 20px;
+	}
+}
+#user-profile{
+  margin: 4px;
+	width: 30px;
+	height: 30px;
+	opacity: 0.6;
+  background: url("../img/icon-user.svg") no-repeat center center;
+
+}
