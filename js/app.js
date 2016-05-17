@@ -41,6 +41,7 @@ $(document).ready(function() {
             } else {
                 console.log("Authenticated successfully with payload:", authData);
                 localStorage.setItem("greetings", loginUsername);
+                alert(loginUsername);
                 window.location.href = "user.html";
             }
         });
